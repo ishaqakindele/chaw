@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% block title %}{{profile.user.username|title}}'s Shopcart {% endblock title %}
+<!-- header  -->
+{% block header %} {% include 'header.html' %}{% endblock header %}
+<!-- header  -->
+
+
+
+{% block content %}
+
+<section class="container text-center mt-5 completed">
+  <div class="">
+    <i class="fa-regular fa-circle-check"></i>
+    <h5 class="mt-3"> Dear {{profile_data.first_name|title}}, your transaction will be delivered</h5>
+    <h6 style="color:red , text ;">Your will delivered in 1hour</h6>
+{% endblock content %}
+    
+
+
+<!--- footer -->
+{% block footer %} {% include 'footer.html' %}{% endblock footer %}
+<!--- footer done -->

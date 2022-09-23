@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %} {{profile_data.user.username|title}} {% endblock title %}
+<!-- header  -->
+{% block header %} {% include 'header.html' %} {% endblock header %}
+<!-- header  -->
+
+<!-- showcase -->
+ {% block showcase %}  {% include 'dash_banner.html' %} {% endblock showcase  %}
+<!-- showcase -->
+
+
+{% block content %}
+<div class="dashead">
+    <h2></h2>
+</div>
+<section class="bigger">
+    <div class="row text-center">
+        {% include 'dash_sidebar.html' %}
+        <div class="col-5 col-sm-6 col-md-3 col-lg-2 col-xl-8 base">
+            <div class="basic">
+                <div class="basicheader">
+                    <h2>Basic Info</h2>
+                </div>
+                <div class="profileicon">
+                    <!-- {% comment %} <i class="fa-solid fa-user"></i> {% endcomment %} -->
+                    <img src="{{profile_data.profile_pix.url}}">
+                </div>
+                <div class="info">
+                    <p>First Name : {{profile_data.first_name}}</p>
+                    <p>Last Name  : {{profile_data.last_name}}</p>
+                    <p>Email : {{profile_data.email}}</p>
+                    <p>Address : ''{{profile_data.address}}</p>
+                    <p>City : {{profile_data.city}}</p>
+                    <p>State : {{profile_data.state}}</p>
+                </div>
+            </div>
+        </div>
+        
+      </div>
+</section>
+
+
+{% endblock content %}
+        
+<!--- footer -->
+{% block footer %} {% include 'footer.html' %}{% endblock footer %}
+<!--- footer done -->
