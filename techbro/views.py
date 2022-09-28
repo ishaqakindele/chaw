@@ -226,7 +226,8 @@ def passwordupdate(request):
     return render(request, 'profilepassword.html', context)      
 # dashboard configuration done  
 
-#shopcart     
+#shopcart 
+@login_required(login_url='signin')    
 def ordermeal(request):
     profile_data = Profile.objects.get(user__username =request.user.username)
     cart_no = profile_data.id
@@ -271,7 +272,7 @@ def ordermeal(request):
 
     return redirect('all_food')
 
-#@login_required(login_url='signin')
+@login_required(login_url='signin')
 def mycart(request):
     profile = Profile.objects.get(user__username = request.user.username)
     shopcart = Shopcartt.objects.filter(user__username = request.user.username, paid=False)
@@ -295,6 +296,7 @@ def mycart(request):
     }
     return render(request, 'cart.html', context)
 
+@login_required(login_url='signin')
 def deletemeal(request):
     if request.method == 'POST':
         meal = request.POST['dishid']
@@ -304,6 +306,7 @@ def deletemeal(request):
     return redirect('mycart')
 
 
+@login_required(login_url='signin')
 def deleteallmeal(request):
     if request.method == 'POST':
         meal = request.POST['alldishid']
@@ -367,6 +370,8 @@ def checkout(request):
 
 # http://localhost:8000/completed
 # payment
+
+@login_required(login_url='signin')
 def payment(request):
     if request.method == 'POST':#integrate api
         api_key= 'sk_test_d55873115b2df92ecdef230ed37e733d41e3b26a'
